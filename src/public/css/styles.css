@@ -420,8 +420,10 @@
         height: 80px;
     }
     #ObjetivoModulo{
-        width: 35%;
-        height: 40px;
+        min-width: 35%;
+        max-width: 40%;
+        min-height: 40px;
+        margin-bottom: 1.125%;
         background-color: white;
         border-radius: 6px;
         display: flex;
@@ -433,8 +435,9 @@
         font-weight: 500;
     }
     #DuracionModulo{
-        width: 30%;
-        height: 40px;
+        min-width: 25%;
+        max-width: 30%;
+        min-height: 40px;
         background-color: white;
         border-radius: 6px;
         display: flex;
