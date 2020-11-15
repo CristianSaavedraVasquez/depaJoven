@@ -88,6 +88,24 @@ router.get('/admin/lista', async (req, res) => {
   }
 });
 
+router.post('/admin/lista/:idUser/delete', async(req, res) => {
+  try {
+    const user = await Users.findById(req.params.idUser, (err, usr) => {
+      if(err) throw new Error(err);
+      if(!usr) throw new Error('User not found');
+      return usr;
+    });
+
+    await Users.findByIdAndDelete( { _id: user._id } );
+
+    return res.redirect('/admin/lista')
+
+  } catch (error) {
+    console.log(error);
+    return res.redirect('/');
+  }
+});
+
 router.get('/logout', (req, res, next) => {
   req.logout();
   res.redirect('/');

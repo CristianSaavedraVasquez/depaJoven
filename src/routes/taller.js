@@ -94,7 +94,7 @@ router.get('/rev/taller/:idTaller/:idModulo/delete', async(req, res) => {
             return md;
         });
 
-        moduloDeleted = await Modulo.findByIdAndDelete({ _id: modulo._id });
+        await Modulo.findByIdAndDelete({ _id: modulo._id });
         res.redirect('/rev/user');
 
     } catch(error){

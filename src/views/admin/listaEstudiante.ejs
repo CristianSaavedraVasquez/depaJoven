@@ -21,6 +21,9 @@
                    <% if(!user.isProfesor){%>
                       <h2>Estudiante</h2> 
                    <% } %>
+                   <form action="/admin/lista/<%= user._id %>/delete" method="POST">
+                        <button>Eliminar usuario</button>
+                   </form>
                 </div>
                 <br>
             <%});%>
