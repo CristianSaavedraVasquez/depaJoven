@@ -1,0 +1,102 @@
+<%- layout('layouts/main') %>
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a id="IMagen" href=""><img src="../../public/img/Frame.png" alt=""></a>
+        <div id="BarraDeNav2">
+            <a href="/logout" class="btn" id="BT0">Cerrar Sesion</a>
+        </div>
+</nav>
+    <header class="main-header" id="mainheader2">
+        <br>
+        <div id="PerfilEstudiante">
+            <h1>Bienvenido/a <%=estudiante.nombre%></h1>
+            <br>
+            <h2>Perfil</h2>
+            <div id="ImagenPerfilEstudiante">
+                <img src="/public<%=String(estudiante.profilePic).split("public")[1]%>" alt="">
+                <br>
+                <div class="FormImagenPerfil">
+                    <br><br>
+                    <form action="fotoPerfil" method="POST" enctype="multipart/form-data" id="form">
+                        <input type="file" id="real-file2" name="foto" id="inputGroupFile02" hidden/>
+                        <button class="btn" type="button" id="custom-button3">Elige Tu Imagen</button>
+                        <br><br>
+                        <span id="custom-text3">No has elegido ningún archivo</span>
+                        <br><br>
+                        <button class="btn" type="submit" id="SubirImagen">Subir Imagen</button>
+                    </form>
+                    <br>
+                </div>
+            </div>
+            <img id="Vector2" src="../../public/img/Vector_2.png" alt="">
+            <div id="TallerInscrito">
+                <h3>Taller Inscrito</h3>
+                <div id="EspacioTaller">
+                    <br>
+                    <h4><%= taller.nombre %></h4>
+                    <a class="btn" href="/rev/taller/<%=taller._id%>">Ver Taller</a>
+                    <% if(estudiante.taller.estado == 'Aprobado' || estudiante.taller.estado == 'Reprobado') { %>
+                        <a class="btn" href="/rev/estudiante/estado">Cierre Taller</a>
+                    <%} %>
+                    <br>
+                </div>
+            </div>
+        </div>
+        <br>
+    </header>
+    <button type="button" class="btn" data-toggle="modal" data-target="#exampleModalCenter" hidden id="botonCondiciones"></button>
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLongTitle">Condiciones de uso</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+            </div>
+            <div class="modal-body">
+                ● Acepto rendir las evaluaciones de carácter “obligatorio” presentes en algunos talleres para poder completarlo.
+                <br>
+                ● Acepto que el departamento de jóvenes de la municipalidad de Concepción haga uso de las imágenes tomadas durante las sesiones de los talleres para fines institucionales, rendición de cuentas y redes sociales. 
+                <br>
+                ● Me comprometo a asistir a las sesiones del taller, en caso de no poder recuperar el contenido a través de los videos. 
+                <br>
+                ● Aseguro que mi domicilio es real y es parte de la comuna de Concepción. 
+                <br>
+                ● En caso de encontrarme con cualquier problema con la plataforma debo dirigirme al contacto del departamento de jóvenes. 
+                <br>
+                ● Acepto entregar mi información para ser utilizada en los formularios y pueda ser visualizada por el equipo de la plataforma y la Municipalidad de Concepción. 
+                <br>
+                Declaro estar al tanto de cada uno de los puntos mencionados anteriormente y acepto las condiciones del uso de la plataforma. 
+    
+            </div>
+            <div class="modal-footer">
+            <button type="button" class="btn" id="BT0" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+        </div>
+    </div>
+    <% include ../layouts/footer%>
+    <script>
+        var botonCondiciones = document.getElementById("botonCondiciones")
+        window.addEventListener("load", function(){
+            botonCondiciones.click();
+        })
+        const realFileBtn2 = document.getElementById("real-file2");
+        const customBtn2 = document.getElementById("custom-button3");
+        const customTxt2 = document.getElementById("custom-text3");
+        customBtn2.addEventListener("click", function() {
+        realFileBtn2.click();
+        });
+        realFileBtn2.addEventListener("change", function() {
+        if (realFileBtn2.value) {
+            customTxt2.innerHTML = realFileBtn2.value.match(
+            /[\/\\]([\w\d\s\.\-\(\)]+)$/
+            )[1];
+        } else {
+            customTxt2.innerHTML = "No file chosen, yet.";
+        }
+        });
+    </script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>

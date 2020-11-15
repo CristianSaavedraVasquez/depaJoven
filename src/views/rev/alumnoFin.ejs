@@ -1,0 +1,30 @@
+<%- layout('layouts/main') %>
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a id="IMagen" href=""><img src="../../public/img/Frame.png" alt=""></a>
+</nav>
+<Header id="mainheader2">
+    <br>
+    <div id="FinalizacionTallerAlumno">
+       
+        <% if(estudiante.taller.estado == 'Aprobado') { %>
+            <h1>Felicitaciones, has completado el taller</h1>
+        <%} else { %>
+            <h1>Has completado el taller</h1>
+        <% } %>    
+        <div id="InformacionFinalizacion">
+            <br>
+            <h5>Agradecemos tu participación y esperamos que puedas brindarnos retroalimentación, para que mejoremos nuestros talleres</h5>
+            <br>
+        </div>
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfe8k9skrT3PmQmFffzekiWwwXzx2aoGha40Vuz2KolK2i56g/viewform?embedded=true" width="50%" height="300" frameborder="0" marginheight="5%" marginwidth="0">Loading…</iframe>
+       
+        <% if(estudiante.taller.estado == 'Aprobado') { %>
+            <div class="Encuestas_Y_Certificados">
+                <h2 class="Texto_Encuestas_Y_Certificados">Certificado</h2>
+                <a href="/certificado" class="btn" id="BotonFinalizarA">Descargar</a>
+            </div>       
+        <%} %>
+    </div>
+    <br>
+</Header>
+<% include ../layouts/footer%>

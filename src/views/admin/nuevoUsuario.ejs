@@ -1,0 +1,48 @@
+<%- layout('layouts/main') %>
+<nav class="navbar navbar-light bg-light">
+    <a href="" id="BotonANav"><img src="../public/img/Frame.png" id="ImagenMuni" ></a>
+    <div id="BarraDeNav">
+        <a href="/logout" class="btn" id="BT1" >Cerrar Sesión</a>
+    </div>
+</nav>
+<header class="main-header" id="mainheader2">
+    <br>
+    <div id="CrearPerfilAdmin">
+        <h1>Crear Nuevo Usuario </h1>
+        <div id="CrearPerfil">
+            <form action="/admin/nuevoUsuario" method="POST">
+                <input id="InputTextXD" type="text" name="nombre" placeholder="Nombre" required>
+                <br>
+                <input id="InputTextXD" type="email" name="email" placeholder="Email" required>
+                <br>
+                <input id="InputTextXD" type="password" name="password" placeholder="Password" required>
+                <br>
+                <input id="InputTextXD" type="text" name="telefono" placeholder="Telefono" required>
+                <br>
+                <input id="InputTextXD" type="text" name="run" placeholder="Rut">
+                <br>
+                <label for="isProfesor">Es el Usuario un Profesor?</label>
+                <input id="Checkbox" type="checkbox" name="isProfesor" id="isProfesor" value="on">
+                <br>
+                <label for="labelRedesSociales">Redes Sociales (Solo Profesores)</label><br>
+                <input id="InputTextXD" type="text" name="instagram" placeholder="Instagram">
+                <br>
+                <input id="InputTextXD" type="text" name="facebook" placeholder="Facebook">
+                <br>
+                <input id="InputTextXD" type="text" name="linkedin" placeholder="LinkedIn">
+                <br><br>
+                <h2>Taller (Solo Estudiantes)</h2>
+                <br>
+                <select name="taller">
+                    <%talleres.forEach( t => { %>
+                        <option value="<%=t._id%>"><%=t.nombre%></option>
+                    <%});%>
+                </select>
+                <br><br>
+                <button type="submit" required class="btn" id="BT1">Crear Usuario</button>
+            </form>
+        </div>
+    </div>
+    <br>
+</header>
+<% include ../layouts/footer%>

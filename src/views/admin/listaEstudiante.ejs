@@ -1,0 +1,31 @@
+<%- layout('layouts/main') %>
+<nav class="navbar navbar-light bg-light">
+    <a href="" id="BotonANav"><img src="../public/img/Frame.png" id="ImagenMuni" ></a>
+    <div id="BarraDeNav">
+        <a href="/logout" class="btn" id="BT1">Cerrar Sesión</a>
+    </div>
+</nav>
+<header id="mainheader2">
+    <br>
+    <div id="GeneralListadoDeAlumnos">
+        <h1>Listado de Usuarios</h1>
+        <br>
+        <div id="ListadoDeAlumnos">
+            <% usuarios.forEach(user => { %> 
+                <div id="InformacionPersonal">
+                    <h2><%= user.nombre %></h2>
+                    <h2><%= user.run %> </h2>
+                   <% if(user.isProfesor){ %>
+                     <h2>Profesor</h2>
+                   <% } %>
+                   <% if(!user.isProfesor){%>
+                      <h2>Estudiante</h2> 
+                   <% } %>
+                </div>
+                <br>
+            <%});%>
+        </div>
+    </div>
+    <br>
+</header>
+<% include ../layouts/footer%>

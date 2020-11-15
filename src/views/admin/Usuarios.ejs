@@ -1,0 +1,18 @@
+<%- layout('layouts/main') %>
+<nav class="navbar navbar-light bg-light">
+    <a href=""><img src="../public/img/Frame.png" id="ImagenMuni" ></a>
+    <div id="BarraDeNav">
+        <a href="/logout" class="btn" id="BT1">Cerrar Sesión</a>
+    </div>
+</nav>
+<header id="mainheader2">
+    <br>
+    <div id="AdministradorCrearPerfil">
+        <h1>Usuarios</h1>
+        <a class="btn" href="/admin/nuevoUsuario">Crear Usuario Nuevo</a>
+        <a class="btn" href="/admin/lista">Lista de Usuarios</a>
+    </div>
+    <br>
+</header>
+
+<% include ../layouts/footer%>

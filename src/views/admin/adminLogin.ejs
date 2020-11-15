@@ -1,0 +1,27 @@
+<%- layout('layouts/main') %>
+<nav class="navbar navbar-light bg-light">
+  <a href="" id="BotonANav"
+    ><img src="../../public/img/Logo_AltaCalidad.png" id="ImagenMuni"
+  /></a>
+  <div id="BarraDeNav">
+    <a href="/logout" class="btn" id="BT1">Volver</a>
+  </div>
+</nav>
+<header id="mainheader2">
+  <div id="ContenedorGeneralSignIn">
+    <br />
+    <div id="ContenedorSignIn">
+      <img src="../public/img/ImagenSingIn.jpg" id="ImagenSignIn" alt="" />
+      <div id="formularioSignIn">
+        <img src="../public/img/Logo_Alta.png" alt="" />
+        <form action="/adminLogin" method="POST" class="form__inputs">
+          <input type="text" name="username" placeholder="Usuario" />
+          <input type="password" name="password" placeholder="Clave" />
+          <button type="submit" class="btn" id="BT1">Iniciar</button>
+        </form>
+      </div>
+    </div>
+    <br />
+  </div>
+</header>
+<% include ../layouts/footer%>

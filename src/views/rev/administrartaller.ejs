@@ -1,0 +1,84 @@
+<%- layout('layouts/main') %>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a id="IMagen" href=""><img src="../../../../public/img/Frame.png" alt=""></a>
+        <div id="BarraDeNav2">
+            <a href="/rev/taller/<%=taller._id%>" class="btn" id="BT0">Ver tus Modulos</a>
+            <a href="/rev/profesor/taller/<%=taller._id%>/finalizar" class="btn btn-danger" style="border-radius: 10px;">Finalizar Taller</a>
+        </div>
+    </nav>
+<header class="main-header" id="mainheader2">
+    <br>
+    <div id="AdministrarTaller">
+        <h1>Administrar tu Taller: <%=taller.nombre%></h1>
+        <div id="Objetivo">
+            <br>
+            <h2>Objetivo</h2>
+            <div id="ObjetivoEspecifico">
+                <h6><%= taller.objetivo %></h6>
+            </div>
+            <br>
+        </div>
+        
+        <img id="Separador" src="../../public/img/Vector_2.png" alt="">
+        <h2>Agregar Módulo Nuevo</h2>
+        <form action="/rev/profesor/taller/<%=taller._id%>" method="POST" enctype="multipart/form-data" id="form">
+            <div class="AñadirModulo">
+                <br>
+                    <h3>Información del Módulo</h3>
+                    <input class="form-control" name="nombre" type="text" placeholder="Nombre" required>
+                    <input class="form-control" name="contenido" type="textArea" placeholder="Contenidos" required>
+                    <input class="form-control" name="evaluacion" type="text" placeholder="Evaluación (Link)">
+                    <input class="form-control" name="duracion" type="text" placeholder="Calendarización (DD/MM/YY)" required>
+                    <div class="AñadirMaterial">
+                        <input type="file" id="real-file" hidden="hidden" name="video"/>
+                        <button class="btn" type="button" id="custom-button">Elige el video</button>
+                        <span id="custom-text">No has elegido ningún archivo</span>
+                    </div>
+                        <br>
+                    <div class="AñadirMaterial">
+                        <input type="file" id="real-file2" hidden="hidden" name="material"/>
+                        <button class="btn" type="button" id="custom-button2">Elige el material</button>
+                        <span id="custom-text2">No has elegido ningún archivo</span>
+                    </div>
+                    <button class="btn" type="submit" id="BotonSiguienteModulo">Siguiente</button>
+                 <br>
+            </div>
+        </form>
+    </div>
+    <br>
+</header>
+
+<% include ../layouts/footer%>
+ <script>
+    const realFileBtn = document.getElementById("real-file");
+    const customBtn = document.getElementById("custom-button");
+    const customTxt = document.getElementById("custom-text");
+    customBtn.addEventListener("click", function() {
+    realFileBtn.click();
+    });
+    realFileBtn.addEventListener("change", function() {
+    if (realFileBtn.value) {
+        customTxt.innerHTML = realFileBtn.value.match(
+        /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+    } else {
+        customTxt.innerHTML = "No has elegido material";
+    }
+    });
+
+    const realFileBtn2 = document.getElementById("real-file2");
+    const customBtn2 = document.getElementById("custom-button2");
+    const customTxt2 = document.getElementById("custom-text2");
+    customBtn2.addEventListener("click", function() {
+    realFileBtn2.click();
+    });
+    realFileBtn2.addEventListener("change", function() {
+    if (realFileBtn2.value) {
+        customTxt2.innerHTML = realFileBtn2.value.match(
+        /[\/\\]([\w\d\s\.\-\(\)]+)$/
+        )[1];
+    } else {
+        customTxt2.innerHTML = "No has elegido material";
+    }
+    });
+</script>

@@ -1,0 +1,26 @@
+<%- layout('layouts/main') %>
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a id="IMagen" href=""><img src="../../public/img/Frame.png" alt=""></a>
+    <div id="BarraDeNav2">
+        <a href="/signinTallerista" class="btn" id="BT0">Volver</a>
+    </div>
+</nav>
+<header class="main-header" id="mainheader2">
+    <br>
+    <div id="CrearTaller1">
+        <h1><%=profesor.nombre%> Comencemos a Crear Tu Taller</h1>
+        <form action="/rev/profesor/creartaller" method="POST">
+            <br>
+            <h4>Nombre Taller</h4>
+            <input class="form-control" type="text" name="nombre" placeholder="Nombre"required>
+            <input class="form-control" type="text" name="objetivo" placeholder="Objetivo" required >
+            <input class="form-control" type="text" name="horario" placeholder="Horario" required>
+            <button type="submit" required class="btn" id="BT1">Siguiente paso</button>
+        </form>
+        </br>
+        </br>
+        </br>
+    </div>
+    <br>
+</header>
+<% include ../layouts/footer%>

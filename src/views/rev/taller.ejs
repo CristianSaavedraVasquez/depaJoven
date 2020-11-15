@@ -1,0 +1,47 @@
+<%- layout('layouts/main') %>
+    <nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+        <a id="IMagen" href=""><img src="../../public/img/Frame.png" alt=""></a>
+    </nav>
+    <header class="main-header" id="mainheader2">
+        <br>
+        <div id="TallerEstudiante">
+            <h1><%=taller.nombre%></h1>
+            <div id="Objetivo">
+                <br>
+                <h2>Objetivos del taller</h2>
+                <div id="ObjetivoEspecifico">
+                    <h6><%= taller.objetivo %></h6>
+                </div>
+                <br>
+            </div>
+            <img id="SeparadorTaller" src="../../public/img/Vector_2.png" alt="">
+            <div id="Modulos">
+                <h3>Módulos</h3>
+                <%if (modulos) {%> 
+                    <% modulos.forEach(m => { %> 
+                        <div id="Modulo">
+                            <h5><%= m.nombre %></h5> 
+                            <br>
+                            <div id="InfoModulo">
+                                <div id="ObjetivoModulo">
+                                    <h4><i class="fa fa-check"></i>   <%= m.contenido %></h4>
+                                </div>
+                                <div id="DuracionModulo">
+                                    <h4><i class="fa fa-clock-o"></i><%= m.duracion %> </h4>
+                                </div>
+                                <img src="../../public/img/Bicolor.png" alt="">
+                                <a class="btn" href="/rev/taller/<%=taller._id%>/<%=m._id%>">Ver Modulo</a>
+                            </div>
+                        </div>
+                        <br>
+                    <%});%>
+                <% }else{ %>
+                    <h1 id="NoTienesModulos">No tienes Modulos Disponibles</h1>
+                <% } %>
+                <img id="SeparadorTaller" src="../../public/img/Vector_2.png" alt="">
+            </div>
+        </div>
+        <br>
+    </header>
+    
+<% include ../layouts/footer%>

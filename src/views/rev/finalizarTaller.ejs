@@ -1,0 +1,39 @@
+<%- layout('layouts/main') %>
+<nav id="navbar" class="navbar navbar-expand-lg navbar-light bg-light">
+    <a id="IMagen" href=""><img src="../../public/img/Frame.png" alt=""></a>
+</nav>
+<header class="main-header" id="mainheader2">
+    <br>
+    <div id="FinalizandoEltaller">
+        <h1>Finalizando el taller</h1>
+        <div id="ParrafoFinalizandoElTaller">
+            <h5>Recuerde que una vez finalizado el Taller, no podra realizar mas cambios ni volver a acceder ni hacer mas cambios</h5>
+            <br>
+            <h5>Antes de Cerrar el taller evalue a sus alumnos</h5>
+        </div>
+        <br>
+        <form action="/rev/profesor/taller/<%=taller._id%>/finalizar" method="post">
+            <% alumnos.forEach(a =>{ %>
+                <label for="nota"><%= a.nombre %></label>
+                <select name="nota" id="alumno" class="nota">
+                    <option value="Aprobado">Aprobado</option>
+                    <option value="Reprobado">Reprobado</option>
+                </select>
+            <% }) %>
+            <button class="btn" type="submit" id="BotonEvaluarParticipante">Evaluar Participante</button>
+        </form>
+    </div>
+    <br>
+</header>
+
+<% include ../layouts/footer%>
+
+<script>
+    var checkbox = document.getElementById("isFin");
+    var BotonSiguiente = document.getElementById("BotonSiguienteModulo");
+    var BotonEvaluarParticipante = document.getElementById("BotonEvaluarParticipante");
+
+    BotonEvaluarParticipante.addEventListener("click", function(){
+        checkbox.click();
+    });
+</script>
