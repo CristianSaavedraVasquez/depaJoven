@@ -417,9 +417,9 @@
         display: flex;
         align-items: center;
         justify-content: space-evenly;
-        height: 80px;
+        min-height: 80px;
     }
-     #ObjetivoModulo{
+    #ObjetivoModulo{
         min-width: 35%;
         max-width: 40%;
         min-height: 40px;
@@ -1203,7 +1203,7 @@
         text-align: center;
     }
     .TituloHome h1{
-        font-size: 2rem;
+        font-size: 1.75rem;
     }
     .TituloHome img{
         width: 50%;
@@ -1219,7 +1219,7 @@
         margin-left: 10%;
     }
     #HomeParrafo h6{
-        font-size: 1.25rem;
+        font-size: 1rem;
         line-height: 1.5rem;
     }
     /*Barra de Navegacion*/
