@@ -419,7 +419,7 @@
         justify-content: space-evenly;
         height: 80px;
     }
-    #ObjetivoModulo{
+     #ObjetivoModulo{
         min-width: 35%;
         max-width: 40%;
         min-height: 40px;
@@ -429,6 +429,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        padding: 4px;
     }
     #ObjetivoModulo h4{
         font-size: 1.25rem;
@@ -442,7 +443,8 @@
         border-radius: 6px;
         display: flex;
         align-items: center; 
-        justify-content: center;   
+        justify-content: center;
+        padding: 4px;  
     }
     #DuracionModulo h4{
         font-size: 1.25rem;
