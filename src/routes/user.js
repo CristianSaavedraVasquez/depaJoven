@@ -119,17 +119,17 @@ router.post('/rev/profesor/creartaller', async (req, res) =>{
         nuevoTaller.descripcion = req.body.descripcion;
         nuevoTaller.objetivo = req.body.objetivo;
         nuevoTaller.horario = req.body.horario;
-        nuevoTaller.profesor = usr._id;
+        nuevoTaller.profesor = user._id;
         await nuevoTaller.save();
 
-        let listaDeTalleres = usr.Profesor.talleres;
+        let listaDeTalleres = user.Profesor.talleres;
         listaDeTalleres.push(nuevoTaller._id);
 
         const updateProfesor = {
             talleres:listaDeTalleres,
-            instagram: usr.Profesor.instagram,
-            facebook: usr.Profesor.facebook,
-            linkedin: usr.Profesor.linkedin
+            instagram: user.Profesor.instagram,
+            facebook: user.Profesor.facebook,
+            linkedin: user.Profesor.linkedin
         }
 
         await User.findByIdAndUpdate(req.session.passport.user, {Profesor: updateProfesor});
